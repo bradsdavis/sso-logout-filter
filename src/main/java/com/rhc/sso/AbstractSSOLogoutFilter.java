@@ -27,6 +27,7 @@ public abstract class AbstractSSOLogoutFilter implements Filter {
 			HttpServletResponse httpResp = (HttpServletResponse)resp;
 			
 			if(httpReq.getSession()!=null) {
+				LOG.debug("Invalidated session.");
 				httpReq.getSession().invalidate();
 			}
 			
@@ -39,9 +40,12 @@ public abstract class AbstractSSOLogoutFilter implements Filter {
 	
 	protected boolean isLogout(ServletRequest req)
 	{
-		boolean logout = StringUtils.endsWith(((HttpServletRequest)req).getServletPath(), "logout");
+		boolean logout = StringUtils.endsWith(((HttpServletRequest)req).getServletPath(), "org.kie.workbench.KIEWebapp/uf_logout");
 		if(!logout && LOG.isDebugEnabled()) {
-			LOG.debug("Not logout request: "+((HttpServletRequest)req).getServletPath()+" as it does not contain 'logout.'");
+			LOG.debug("Not logout request: "+((HttpServletRequest)req).getServletPath()+" as it does not contain '/org.kie.workbench.KIEWebapp/out.'");
+		}
+		if(logout && LOG.isDebugEnabled()) {
+			LOG.debug("Is logout request: "+((HttpServletRequest)req).getServletPath()+" as it does contain '/org.kie.workbench.KIEWebapp/out.'");
 		}
 		return logout;
 	}
