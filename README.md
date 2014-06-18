@@ -29,7 +29,7 @@ Or, if from the logout URL is in the HTTP header:
     <filter-name>Header SSO Filter</filter-name>
     <filter-class>com.rhc.sso.SSOHeaderLogoutFilter</filter-class>
     <init-param>
-      <param-name>static.logout.url</param-name>
+      <param-name>header.logout.url</param-name>
       <param-value>SOME_HEADER_PROPERTY</param-value>
     </init-param>
    </filter>
