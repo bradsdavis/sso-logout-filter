@@ -3,6 +3,8 @@ sso-logout-filter
 SSO Logout Filter for redirecting SSO Logouts and invalidating the user's session.
 
 
+Add one of the following filters to the business-central.war/WEB-INF/web.xml as the *first filter*.
+
 To leverage, if the logout URL is static:
 
 ```xml
@@ -18,7 +20,7 @@ To leverage, if the logout URL is static:
 
   <filter-mapping>
     <filter-name>Static SSO Filter</filter-name>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>*</url-pattern>
   </filter-mapping>
 ```
 
@@ -37,6 +39,6 @@ Or, if from the logout URL is in the HTTP header:
 
   <filter-mapping>
     <filter-name>Header SSO Filter</filter-name>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>*</url-pattern>
   </filter-mapping>
 ```
