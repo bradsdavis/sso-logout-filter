@@ -3,7 +3,7 @@ sso-logout-filter
 SSO Logout Filter for redirecting SSO Logouts and invalidating the user's session.
 
 
-To leverage:
+To leverage, if the logout URL is static:
 
 ```xml
   <filter>
@@ -23,7 +23,7 @@ To leverage:
 ```
 
 
-or, if from the header:
+Or, if from the logout URL is in the HTTP header:
 ```xml
   <filter>
     <filter-name>Header SSO Filter</filter-name>
