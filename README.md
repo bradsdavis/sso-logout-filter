@@ -5,6 +5,7 @@ SSO Logout Filter for redirecting SSO Logouts and invalidating the user's sessio
 
 To leverage:
 
+```xml
   <filter>
     <filter-name>Static SSO Filter</filter-name>
     <filter-class>com.rhc.sso.SSOStaticLogoutFilter</filter-class>
@@ -19,9 +20,11 @@ To leverage:
     <filter-name>Static SSO Filter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+```
+
 
 or, if from the header:
-
+```xml
   <filter>
     <filter-name>Header SSO Filter</filter-name>
     <filter-class>com.rhc.sso.SSOHeaderLogoutFilter</filter-class>
@@ -36,4 +39,4 @@ or, if from the header:
     <filter-name>Header SSO Filter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-
+```
