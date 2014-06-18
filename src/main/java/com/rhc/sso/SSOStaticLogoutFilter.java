@@ -14,6 +14,7 @@ import org.apache.log4j.Logger;
  */
 public class SSOStaticLogoutFilter extends AbstractSSOLogoutFilter {
 	private static final Logger LOG = Logger.getLogger(SSOStaticLogoutFilter.class);
+	private static final String STATIC_INIT_PROPERTY = "static.logout.url";
 	private String redirectUrl;
 	
 	public void destroy() {
@@ -21,7 +22,7 @@ public class SSOStaticLogoutFilter extends AbstractSSOLogoutFilter {
 	}
 
 	public void init(FilterConfig conf) throws ServletException {
-		redirectUrl = conf.getInitParameter("static-logout-url");
+		redirectUrl = conf.getInitParameter(STATIC_INIT_PROPERTY);
 		
 		if(StringUtils.isBlank(redirectUrl)) {
 			throw new ServletException("Expected required init property [static-logout-url], which tells the filter where to redirect on logout.");
